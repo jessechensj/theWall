@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>New message</title>
+    </head>
+
+    <body>
+        <% if flash[:notice] %>
+            <% flash[:notice].each do |note| %>
+                <p id="error"><%= note %></p>  
+            <% end %>
+        <% end %>
+        <form action="/messages" method="post">
+            <input type='hidden' name="authenticity_token" value="<%=form_authenticity_token%>">
+            <input type='hidden' name="message[user_id]" value="<%=session[:user_id]%>">
+            Username: <input type='text' name="message[message]">
+            <input type='submit' value='Post'>
+        </form>
+    </body>
+</html>

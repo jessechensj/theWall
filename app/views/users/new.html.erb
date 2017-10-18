@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title>Register</title
+    </head>
+
+    <body>
+        <% if flash[:notice] %>
+            <% flash[:notice].each do |note| %>
+                <p id="error"><%= note %></p>  
+            <% end %>
+        <% end %>
+        <form action="/users" method="post">
+            <input type='hidden' name="authenticity_token" value="<%=form_authenticity_token%>">
+            Username: <input type='text' name="user[username]">
+            <input type='submit' value='Register'>
+        </form>
+    </body>
+</html>

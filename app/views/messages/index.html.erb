@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>Message</title>
+    </head>
+
+    <body>
+        <% if flash[:notice] %>
+            <% flash[:notice].each do |note| %>
+                <p id="error"><%= note %></p>  
+            <% end %>
+        <% end %>
+
+        <% if @messages %>
+            <% for message in @messages %>
+                <p><%= message.message %></p>
+            <% end %>
+        <% end %>
+                
+        <a href="/users/new" title="logout">logout</a>
+    </body>
+</html>
